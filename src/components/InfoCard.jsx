@@ -45,7 +45,7 @@ const styles = theme => {
     rightPanel: {
       width: '50%',
       height: '100%',
-      color: getColorFromTheme(theme, 'gray02', 'white', 'black')
+      color: getColorFromTheme(theme, 'black', 'white', 'black')
     },
     container: {
       'margin-left': spacings.large,
