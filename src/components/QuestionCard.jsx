@@ -7,7 +7,7 @@ import mediaQueries from '../utils/mediaQueries'
 /**
  * Themed card component that display a question and choices.
  * @version 1.0.1
- * @author [Saad Ishaq]
+ * @author [Saad Ishfaq]
  */
 const styles = theme => {
   const { weights: fontWeights, sizes: fontSizes } = theme.font
@@ -16,7 +16,7 @@ const styles = theme => {
   const styleJson = {
     cardWrapper: {
       width: '90%',
-      'min-width': '514px',
+      'min-width': '480px',
       'max-width': mediaQueries[3],
       position: 'relative',
       '&:before': {
@@ -32,6 +32,7 @@ const styles = theme => {
       bottom: 0,
       left: 0,
       display: 'flex',
+      width: '100%',
       background: getColorFromTheme(theme, 'gray08', 'gray14', 'white'),
       'border-radius': '14px',
       border: `4px solid ${getColorFromTheme(

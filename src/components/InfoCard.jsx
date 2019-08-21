@@ -8,7 +8,7 @@ import mediaQueries from '../utils/mediaQueries'
  * Themed card component that displays detailed informations - name, photo, responsiblites and brief introduction.
  *
  * @version 1.0.1
- * @author [Saad Ishaq]
+ * @author [Saad Ishfaq]
  */
 
 const styles = theme => {
@@ -18,7 +18,7 @@ const styles = theme => {
   const styleJson = {
     cardWrapper: {
       width: '90%',
-      'min-width': '514px',
+      'min-width': '480px',
       'max-width': mediaQueries[3],
       position: 'relative',
       '&:before': {
@@ -104,11 +104,10 @@ const styles = theme => {
 
     close: {
       'margin-right': '13px',
-
       position: 'relative',
       display: 'inline-block',
       width: '100%',
-      height: spacings.xsmall
+      height: '10px'
     },
 
     closeIcon: {
@@ -116,10 +115,10 @@ const styles = theme => {
       display: 'inline-block',
       width: spacings.xsmall,
       position: 'absolute',
-      top: 0,
-      right: 0,
+      top: '0',
+      right: '0.5rem',
       '&:hover': {
-        color: getColorFromTheme(theme, 'gray12', 'gray12', 'white')
+        color: getColorFromTheme(theme, 'gray12', 'gray04', 'white')
       }
     },
     [`@media (min-width: ${mediaQueries[0]}px)`]: {
@@ -226,9 +225,9 @@ const InfoCard = ({ classes, name, responsiblities, photo, aboutMe }) => {
           <img className={classes.photo} src={photo} alt={'Portrait'} />
         </div>
         <div className={classes.rightPanel}>
-          {/* <div className={classes.close}>
-          <i className={'material-icons ' + classes.closeIcon}>clear</i>
-        </div> */}
+          <div className={classes.close}>
+            <i className={'material-icons ' + classes.closeIcon}>clear</i>
+          </div>
 
           <div className={classes.container}>
             <div className={classes.name}>{name}</div>
