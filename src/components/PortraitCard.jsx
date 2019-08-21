@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import photo from '../images/photo.png'
 import injectSheet from 'react-jss'
 import getColorFromTheme from '../utils/getColorFromTheme'
 
@@ -42,12 +41,15 @@ const styles = theme => ({
   textArea: {
     'margin-left': theme.spacing.xSmall
   },
+  name: {
+    color: getColorFromTheme(theme, 'black', 'white')
+  },
   position: {
     color: theme.colors.avatars.avatar4
   }
 })
 
-const PortraitCard = ({ classes, name, position }) => {
+const PortraitCard = ({ classes, name, position, photo }) => {
   console.log(classes)
   return (
     <div className={classes.card}>

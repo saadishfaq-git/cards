@@ -1,6 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'react-jss'
 import PortraitCard from './PortraitCard'
+import photo from '../images/photo.png'
 
 const defaultTheme = {
   style: 0,
@@ -143,7 +144,7 @@ const defaultTheme = {
 
 const App = () => (
   <ThemeProvider theme={defaultTheme}>
-    <PortraitCard name="Daniel Dowd" position="CTO" />
+    <PortraitCard name="Daniel Dowd" position="CTO" photo={photo} />
   </ThemeProvider>
 )
 

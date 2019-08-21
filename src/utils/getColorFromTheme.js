@@ -7,7 +7,7 @@ const getColorFromTheme = (theme, color, highContrast, avatar) => {
           resultColor = theme.colors.light[color]
           break
         case 1:
-          resultColor = theme.colors.dark.color[color]
+          resultColor = theme.colors.dark[color]
           break
         case 2:
           resultColor = theme.colors.highContrast[highContrast]
