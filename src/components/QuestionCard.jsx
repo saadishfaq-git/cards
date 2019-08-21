@@ -2,16 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 import getColorFromTheme from '../utils/getColorFromTheme'
+import mediaQueries from '../utils/mediaQueries'
+import { blockParams } from 'handlebars'
 
 const styles = theme => {
   const { weights: fontWeights, sizes: fontSizes } = theme.font
   const { spacing: spacings } = theme
   const { colors } = theme
   const styleJson = {
+    cardWrapper: {
+      width: '90%',
+      'min-width': '514px',
+      'max-width': mediaQueries[3],
+      position: 'relative',
+      '&:before': {
+        content: '""',
+        display: 'block',
+        'padding-top': '69%'
+      }
+    },
     card: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
       display: 'flex',
-      width: '534px',
-      height: '372px',
       background: getColorFromTheme(theme, 'gray08', 'gray14', 'white'),
       'border-radius': '14px',
       border: `4px solid ${getColorFromTheme(
@@ -52,7 +68,6 @@ const styles = theme => {
       'margin-left': spacings.large,
       'margin-top': spacings.xLarge
     },
-
     caption: {
       color: getColorFromTheme(theme, 'black', 'white', 'black'),
       'font-size': fontSizes.base.fontSize,
@@ -83,6 +98,50 @@ const styles = theme => {
         'black',
         'black'
       )}`
+    },
+    [`@media (min-width: ${mediaQueries[0]}px)`]: {
+      cardWrapper: {
+        width: '100%'
+      },
+      container: {
+        'margin-top': spacings.xxxLarge
+      },
+      caption: {
+        'font-size': fontSizes.title2.fontSize,
+        'line-height': fontSizes.title2.lineHeight
+      },
+
+      names: {
+        'margin-top': spacings.base
+      },
+      name: {
+        'margin-bottom': spacings.small,
+        'padding-top': spacings.small,
+        'padding-bottom': spacings.small,
+        'padding-left': spacings.xxSmall
+      }
+    },
+    [`@media (min-width: ${mediaQueries[1]}px)`]: {
+      container: {
+        'margin-top': spacings.xxxLarge,
+        'padding-top': spacings.small
+      },
+      caption: {
+        'font-size': fontSizes.title.fontSize,
+        'line-height': fontSizes.title.lineHeight
+      },
+
+      names: {
+        'margin-top': spacings.large
+      },
+      name: {
+        'font-size': fontSizes.caption.fontSize,
+        'line-height': fontSizes.caption.lineHeight,
+        'margin-bottom': spacings.small,
+        'padding-top': spacings.small,
+        'padding-bottom': spacings.small,
+        'padding-left': spacings.xxSmall
+      }
     }
   }
   return styleJson
@@ -90,17 +149,19 @@ const styles = theme => {
 
 const QuestionCard = ({ classes, names, photo }) => {
   return (
-    <div className={classes.card}>
-      <div className={classes.portrait}>
-        <img className={classes.photo} src={photo} alt="" />
-      </div>
-      <div className={classes.rightPanel}>
-        <div className={classes.container}>
-          <div className={classes.caption}>Who is this person?</div>
-          <div className={classes.names}>
-            {names.map(name => (
-              <div className={classes.name}>{name}</div>
-            ))}
+    <div className={classes.cardWrapper}>
+      <div className={classes.card}>
+        <div className={classes.portrait}>
+          <img className={classes.photo} src={photo} alt="" />
+        </div>
+        <div className={classes.rightPanel}>
+          <div className={classes.container}>
+            <div className={classes.caption}>Who is this person?</div>
+            <div className={classes.names}>
+              {names.map(name => (
+                <div className={classes.name}>{name}</div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
