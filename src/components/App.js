@@ -1,6 +1,6 @@
-import React from 'react';
-import { createUseStyles, useTheme, ThemeProvider } from 'react-jss';
-import PortraitCard from './PortraitCard';
+import React from 'react'
+import { ThemeProvider } from 'react-jss'
+import PortraitCard from './PortraitCard'
 
 const defaultTheme = {
   style: 0,
@@ -139,12 +139,12 @@ const defaultTheme = {
       xsmall: { fontSize: '1rem', lineHeight: '1.1rem' }
     }
   }
-};
+}
 
 const App = () => (
   <ThemeProvider theme={defaultTheme}>
     <PortraitCard name="Daniel Dowd" position="CTO" />
   </ThemeProvider>
-);
+)
 
-export default App;
+export default App
