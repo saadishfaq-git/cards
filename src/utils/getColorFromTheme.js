@@ -1,3 +1,13 @@
+/**
+ * This function receives color names from each color mode
+ * and return color value depending on style value of the theme
+ * @param {String} theme  The theme object which is proivded through React Context API
+ * @param {String} light  Color name from light theme
+ * @param {String} dark   Color name from dark theme
+ * @param {String} highContrast Color name from high-contrast theme
+ * @param {String} avatar Color name from a special category called 'avartar'
+ * @return {String}       Color value from the theme.
+ */
 const getColorFromTheme = (theme, light, dark, highContrast, avatar) => {
   let resultColor = '#FFF'
   const { colors } = theme
