@@ -1,10 +1,11 @@
 import React from 'react'
 import { ThemeProvider } from 'react-jss'
 import PortraitCard from './PortraitCard'
+import InfoCard from './InfoCard'
 import photo from '../images/photo.png'
 
 const defaultTheme = {
-  style: 0,
+  style: 2,
   colors: {
     transparent: 'transparent',
     light: {
@@ -144,7 +145,15 @@ const defaultTheme = {
 
 const App = () => (
   <ThemeProvider theme={defaultTheme}>
-    <PortraitCard name="Daniel Dowd" position="CTO" photo={photo} />
+    <div>
+      <PortraitCard name="Daniel Dowd" position="CTO" photo={photo} />
+      <InfoCard
+        name="Daniel Dowd"
+        responsiblities={['Programming', 'Databases']}
+        photo={photo}
+        aboutMe="I enjoy making software"
+      />
+    </div>
   </ThemeProvider>
 )
 

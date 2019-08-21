@@ -1,25 +1,34 @@
-const getColorFromTheme = (theme, color, highContrast, avatar) => {
+const getColorFromTheme = (theme, light, dark, highContrast, avatar) => {
   let resultColor = '#FFF'
+  const { colors } = theme
   try {
     if (avatar === undefined) {
       switch (theme.style) {
         case 0:
-          resultColor = theme.colors.light[color]
+          resultColor = colors.light[light]
           break
         case 1:
-          resultColor = theme.colors.dark[color]
+          resultColor = colors.dark[dark]
           break
         case 2:
-          resultColor = theme.colors.highContrast[highContrast]
+          resultColor = colors.highContrast[highContrast]
           break
         default:
-          resultColor = theme.colors.light[color]
+          resultColor = colors.light[light]
       }
     } else {
-      resultColor = theme.color.avatar[avatar]
+      resultColor = colors.avatar[avatar]
     }
   } catch (error) {
-    console.log(`Color does not exist in the theme: ${color}`)
+    console.log(
+      `Color does not exist in the theme: ${light +
+        ' ' +
+        dark +
+        ' ' +
+        highContrast +
+        ' ' +
+        avatar}`
+    )
   }
   return resultColor
 }
