@@ -71,16 +71,15 @@ const styles = theme => {
       'font-weight': fontWeights.semibold.fontWeight,
       background: getColorFromTheme(theme, 'gray04', 'gray10', 'black'),
       color: getColorFromTheme(theme, 'gray14', 'white', 'white'),
-      'margin-right': '2rem',
-      'margin-bottom': '0.8rem',
-      padding: '0.2rem 0 0.2rem 0.5rem',
+      'margin-right': spacings.large,
+      'margin-bottom': spacings.xSmall,
       'padding-top': spacings.xSmall,
       'padding-right': 0,
       'padding-bottom': spacings.xSmall,
       'padding-left': spacings.xxSmall,
       'box-shadow': `1px 2px 6px 0px ${getColorFromTheme(
         theme,
-        'white',
+        'gray02',
         'black',
         'black'
       )}`
