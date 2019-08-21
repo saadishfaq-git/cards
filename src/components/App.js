@@ -147,13 +147,13 @@ const defaultTheme = {
 const App = () => (
   <ThemeProvider theme={defaultTheme}>
     <div>
-      {/* <PortraitCard name="Daniel Dowd" position="CTO" photo={photo} />
+      <PortraitCard name="Daniel Dowd" position="CTO" photo={photo} />
       <InfoCard
         name="Daniel Dowd"
         responsiblities={['Programming', 'Databases']}
         photo={photo}
         aboutMe="I enjoy making software"
-      /> */}
+      />
       <QuestionCard
         photo={photo}
         names={['Andrew Currinder', 'Will Edwards', 'Daniel Dowd']}

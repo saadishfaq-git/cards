@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 import getColorFromTheme from '../utils/getColorFromTheme'
 
+/**
+ * Themed card component that displays a photo, name, position.
+ *
+ * @version 1.0.1
+ * @author [Saad Ishaq]
+ */
 const styles = theme => {
   const { weights: fontWeights, sizes: fontSizes } = theme.font
   const { spacing: spacings } = theme
@@ -80,9 +86,18 @@ const PortraitCard = ({ classes, name, position, photo }) => {
 }
 
 PortraitCard.propTypes = {
+  /**
+   * Name infomation to display
+   */
   name: PropTypes.string.isRequired,
+  /**
+   * Position information to display
+   */
   position: PropTypes.string.isRequired,
-  photo: PropTypes.string
+  /**
+   * Photo url for card
+   */
+  photo: PropTypes.string.isRequired
 }
 
 PortraitCard.defaultProps = {

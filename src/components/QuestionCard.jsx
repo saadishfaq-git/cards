@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
 import getColorFromTheme from '../utils/getColorFromTheme'
 import mediaQueries from '../utils/mediaQueries'
-import { blockParams } from 'handlebars'
 
+/**
+ * Themed card component that display a question and choices.
+ * @version 1.0.1
+ * @author [Saad Ishaq]
+ */
 const styles = theme => {
   const { weights: fontWeights, sizes: fontSizes } = theme.font
   const { spacing: spacings } = theme
@@ -66,6 +70,7 @@ const styles = theme => {
 
     container: {
       'margin-left': spacings.large,
+      'margin-right': spacings.large,
       'margin-top': spacings.xLarge
     },
     caption: {
@@ -86,7 +91,6 @@ const styles = theme => {
       'font-weight': fontWeights.semibold.fontWeight,
       background: getColorFromTheme(theme, 'gray04', 'gray10', 'black'),
       color: getColorFromTheme(theme, 'gray14', 'white', 'white'),
-      'margin-right': spacings.large,
       'margin-bottom': spacings.xSmall,
       'padding-top': spacings.xSmall,
       'padding-right': 0,
@@ -142,6 +146,30 @@ const styles = theme => {
         'padding-bottom': spacings.small,
         'padding-left': spacings.xxSmall
       }
+    },
+    [`@media (min-width: ${mediaQueries[2]}px)`]: {
+      container: {
+        'margin-left': spacings.xxxLarge,
+        'margin-right': spacings.xxxLarge,
+        'margin-top': spacings.xxxLarge,
+        'padding-top': spacings.xxxLarge
+      },
+      caption: {
+        'font-size': fontSizes.title.fontSize,
+        'line-height': fontSizes.title.lineHeight
+      },
+
+      names: {
+        'margin-top': spacings.xxLarge
+      },
+      name: {
+        'font-size': fontSizes.caption.fontSize,
+        'line-height': fontSizes.caption.lineHeight,
+        'margin-bottom': spacings.large,
+        'padding-top': spacings.base,
+        'padding-bottom': spacings.base,
+        'padding-left': spacings.small
+      }
     }
   }
   return styleJson
@@ -170,7 +198,13 @@ const QuestionCard = ({ classes, names, photo }) => {
 }
 
 QuestionCard.propTypes = {
+  /**
+   * Names of choice to the question.
+   */
   names: PropTypes.array,
+  /**
+   * Photo url that the question indicates.
+   */
   photo: PropTypes.string
 }
 
